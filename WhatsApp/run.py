@@ -8,5 +8,5 @@ if __name__ == '__main__':
         Table = Maintainer.open_table()
         persons, phones = Maintainer.find_soon_day_birthday(Table)
         for person in persons:
-            WhatsAppBot.send_message(f'⚡ Через *два* дня день рождения у:\n*{person}*', (..., ...))
-        time.sleep(86_400)
+            WhatsAppBot.send_message(f'⚡ Через *два* дня день рождения у:\n*{person}*', phones)
+        time.sleep(86_400)  # 1 day :)
