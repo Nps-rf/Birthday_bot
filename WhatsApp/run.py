@@ -3,15 +3,16 @@ from WhatsAppBot import *
 
 
 if __name__ == '__main__':
+    """Infinite cycle where we check soonest birthdays and send notification about them to anyone you want"""
     while True:
-        # Maintainer.update_table()
-        Table = Maintainer.open_table()
+        # Maintainer.update_table(path='here your path', url='here your url for downloading .xlsx table')
+        Table = Maintainer.open_table(path='here your path')  # Reading table
         persons, phones = Maintainer.find_soon_day_birthday(Table)
-        del phones
-        for person in persons:
-            with open('WAB_logs.out', 'a', encoding='utf-8') as output:
+        for person in persons:  # Send notification about each person in persons
+            with open('WhatsAppBot_logs.out', 'a', encoding='utf-8') as output:
+                """If you don't have access to WhatsApp API, you may use .send_message_manual"""
                 print(WhatsAppBot.send_message(
-                    f'⚡ *Завтра* день рождения у:\n_{person}_ 🥳', phones),
+                    f'⚡ *Завтра* день рождения у:\n_{person}_ 🥳', 'here your phones list'),
                     file=output
                 )
         time.sleep(86_400)  # 1 day :)

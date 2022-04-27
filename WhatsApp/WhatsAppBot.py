@@ -10,9 +10,10 @@ from env import *
 
 
 class WhatsAppBot(object):
-    APIUrl = APIUrl
+    __send_method = 'sendMessage?token={}'
+    __headers = {'Content-type': 'application/json'}
+    APIUrl = APIUrl + __send_method
     token = token
-    headers = {'Content-type': 'application/json'}
 
     @staticmethod
     def send_message_manual(message: str, phones: List[str]):
@@ -23,13 +24,13 @@ class WhatsAppBot(object):
             keyboard.press_and_release('enter')
 
     @classmethod
-    def send_message(cls, message: str, phones: List[str]):
+    def send_message(cls, message: str, phones: List[str]) -> json:
         url = cls.APIUrl.format(cls.token)
         for phone in phones:
             data = {
                 "phone": phone,
                 "body": message
                        }
-            answer = requests.post(url, data=json.dumps(data), headers=cls.headers)
+            answer = requests.post(url, data=json.dumps(data), headers=cls.__headers)
             return answer.json()
 
