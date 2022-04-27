@@ -1,3 +1,12 @@
+"""
+                            -------------------------------------------------------
+                            | DOCUMENTATION LANGUAGE  || RU & ENG   		      |
+                            | Created by Nps-rf 	  || 25.04.2022		          |
+                            | Edited by Nps-rf	      || 27.04.2022			      |
+                            | Email				      || Divine.Nikolai@Gmail.com |
+                            -------------------------------------------------------
+"""
+
 from Maintainer import *
 from WhatsAppBot import *
 
