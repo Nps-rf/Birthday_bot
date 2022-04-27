@@ -24,13 +24,12 @@ class WhatsAppBot(object):
             keyboard.press_and_release('enter')
 
     @classmethod
-    def send_message(cls, message: str, phones: List[str]) -> json:
+    def send_message(cls, message: str, phone: List[str]) -> json:
         url = cls.APIUrl.format(cls.token)
-        for phone in phones:
-            data = {
-                "phone": phone,
-                "body": message
-                       }
-            answer = requests.post(url, data=json.dumps(data), headers=cls.__headers)
-            return answer.json()
+        data = {
+            "phone": phone,
+            "body": message
+        }
+        answer = requests.post(url, data=json.dumps(data), headers=cls.__headers)
+        return answer.json()
 

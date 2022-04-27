@@ -11,8 +11,9 @@ if __name__ == '__main__':
         for person in persons:  # Send notification about each person in persons
             with open('WhatsAppBot_logs.out', 'a', encoding='utf-8') as output:
                 """If you don't have access to WhatsApp API, you may use .send_message_manual"""
-                print(WhatsAppBot.send_message(
-                    f'⚡ *Завтра* день рождения у:\n_{person}_ 🥳', 'here your phones list'),
-                    file=output
-                )
+                for phone in phones:
+                    print(WhatsAppBot.send_message(  # You may edit message you need to send
+                        f'⚡ *Завтра* день рождения у:\n_{person}_ 🥳', phone),
+                        file=output
+                    )
         time.sleep(86_400)  # 1 day :)
