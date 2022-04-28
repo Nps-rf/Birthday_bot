@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 
 
-class Time(object):
+class Time(datetime):
     @staticmethod
     def timedelta(day: int, month: int, year: int):
         return Time.datetime_to_delta(datetime(year=year, month=month, day=day))

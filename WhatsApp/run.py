@@ -3,7 +3,7 @@ if __name__ != '__main__':
                         -------------------------------------------------------
                         | DOCUMENTATION LANGUAGE  || RU & ENG   		      |
                         | Created by Nps-rf 	  || 25.04.2022		          |
-                        | Edited by Nps-rf	      || 27.04.2022			      |
+                        | Edited by Nps-rf	      || 28.04.2022			      |
                         | Email				      || Divine.Nikolai@Gmail.com |
                         -------------------------------------------------------
     """
@@ -23,4 +23,4 @@ else:
                         f'⚡ *Завтра* день рождения у:\n_{person}_ 🥳', phone),
                         file=output
                     )
-        time.sleep(86_400)  # 1 day :)
+        time.sleep(86_400)  # Your Timeout, i guess 1 day is more than enough.

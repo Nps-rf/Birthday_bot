@@ -1,5 +1,3 @@
-from typing import List
-
 import pywhatkit
 import keyboard
 import pyautogui
@@ -17,7 +15,7 @@ class WhatsAppBot(object):
 
     @staticmethod
     def send_message_manually(message: str, phone: str):
-        pywhatkit.whats.sendwhatmsg_instantly(phone, message + ' 🥳', 8)
+        pywhatkit.whats.sendwhatmsg_instantly(phone, message, 10)
         pyautogui.click(850, 850)
         time.sleep(1.5)
         keyboard.press_and_release('enter')
