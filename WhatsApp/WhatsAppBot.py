@@ -16,15 +16,14 @@ class WhatsAppBot(object):
     token = token
 
     @staticmethod
-    def send_message_manual(message: str, phones: List[str]):
-        for phone in phones:
-            pywhatkit.whats.sendwhatmsg_instantly(phone, message + ' 🥳', 8)
-            pyautogui.click(850, 850)
-            time.sleep(1.5)
-            keyboard.press_and_release('enter')
+    def send_message_manually(message: str, phone: str):
+        pywhatkit.whats.sendwhatmsg_instantly(phone, message + ' 🥳', 8)
+        pyautogui.click(850, 850)
+        time.sleep(1.5)
+        keyboard.press_and_release('enter')
 
     @classmethod
-    def send_message(cls, message: str, phone: List[str]) -> json:
+    def send_message(cls, message: str, phone: str) -> json:
         url = cls.APIUrl.format(cls.token)
         data = {
             "phone": phone,
