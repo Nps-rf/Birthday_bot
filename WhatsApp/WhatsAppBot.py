@@ -1,6 +1,6 @@
 # import pywhatkit
-import keyboard
-import pyautogui
+# import keyboard
+# import pyautogui
 import time
 import json
 import requests
