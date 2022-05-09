@@ -1,4 +1,4 @@
-import pywhatkit
+# import pywhatkit
 import keyboard
 import pyautogui
 import time
@@ -13,12 +13,12 @@ class WhatsAppBot(object):
     APIUrl = APIUrl + __send_method
     token = token
 
-    @staticmethod
-    def send_message_manually(message: str, phone: str):
-        pywhatkit.whats.sendwhatmsg_instantly(phone, message, 10)
-        pyautogui.click(850, 850)
-        time.sleep(1.5)
-        keyboard.press_and_release('enter')
+    # @staticmethod
+    # def send_message_manually(message: str, phone: str):
+    #     pywhatkit.whats.sendwhatmsg_instantly(phone, message, 10)
+    #     pyautogui.click(850, 850)
+    #     time.sleep(1.5)
+    #     keyboard.press_and_release('enter')
 
     @classmethod
     def send_message(cls, message: str, phone: str) -> json:

@@ -12,7 +12,7 @@ else:
     from WhatsAppBot import *
     """Infinite cycle where we check soonest birthdays and send notification about them to anyone you want"""
     while True:
-        Maintainer.update_table(path='here your path', url='here your url for downloading .xlsx table')
+        Maintainer.update_table()
         Table = Maintainer.open_table()  # Reading table
         persons, phones = Maintainer.find_soon_day_birthday(Table)
         for person in persons:  # Send notification about each person in persons
