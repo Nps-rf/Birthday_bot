@@ -12,7 +12,7 @@ class Maintainer(object):
               r'export?format=xlsx&id=1wrXhwMEwoYbErhQiVAQ27YxbdkwvHWerIa_5-PImags'
         if os.path.exists(path):
             os.remove(path)
-        return wget.download(url, os.path.curdir)
+        return wget.download(url, os.path.curdir, bar=None)
 
     # noinspection PyArgumentList
     @staticmethod
@@ -24,7 +24,7 @@ class Maintainer(object):
         phones = list()
         for person, birthday, phone in zip(table['ФИ'], table['День рождения'], table['Телефон для связи:']):
             birthday = birthday.replace(year=2020)
-            if not pd.isna(person):
+            if not pd.isna(person) and not pd.isna(birthday):
                 if Time.is_soon(Time.current_datetime(), Time.datetime_to_delta(birthday)):
                     result.append((person, 'Завтра'))
                 elif Time.is_today(Time.current_datetime(), Time.datetime_to_delta(birthday)):
