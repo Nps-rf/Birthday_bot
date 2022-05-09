@@ -26,7 +26,9 @@ class Maintainer(object):
             birthday = birthday.replace(year=2020)
             if not pd.isna(person):
                 if Time.is_soon(Time.current_datetime(), Time.datetime_to_delta(birthday)):
-                    result.append(person)
+                    result.append((person, 'Завтра'))
+                elif Time.is_today(Time.current_datetime(), Time.datetime_to_delta(birthday)):
+                    result.append((person, 'Сегодня'))
                 elif not pd.isna(phone):
                     phones.append(phone)
         return result, tuple(phones)

@@ -27,3 +27,8 @@ class Time(datetime):
     def is_soon(today: timedelta, birthday: timedelta) -> bool:
         difference: timedelta = today.days - birthday.days
         return difference % 365 == 364
+
+    @staticmethod
+    def is_today(today: timedelta, birthday: timedelta) -> bool:
+        difference: timedelta = today.days - birthday.days
+        return difference % 365 == 0
